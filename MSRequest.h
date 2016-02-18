@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIView+HudHelper.h"
 
 typedef NS_ENUM(NSUInteger, APICODE){
     APICODE_SUCCESS_ARR,
@@ -31,6 +32,7 @@ typedef void (^API_BLOCK)(id data, NSInteger errCode, NSString *wrongTip);
                          host:(NSString*)host
                           url:(NSString*)url
                         param:(id)param
+                        cache:(BOOL)cache
                           tag:(NSInteger)tag
                         block:(API_BLOCK)block;
 
@@ -38,6 +40,7 @@ typedef void (^API_BLOCK)(id data, NSInteger errCode, NSString *wrongTip);
                                host:(NSString*)host
                                 url:(NSString*)url
                               param:(id)param
+                              cache:(BOOL)cache
                                 tag:(NSInteger)tag
                               block:(API_BLOCK)block;
 
@@ -50,6 +53,7 @@ typedef void (^API_BLOCK)(id data, NSInteger errCode, NSString *wrongTip);
                           host:(NSString*)host
                            url:(NSString*)url
                          param:(id)param
+                         cache:(BOOL)cache
                            tag:(NSInteger)tag
                          block:(API_BLOCK)block;
 
@@ -57,6 +61,7 @@ typedef void (^API_BLOCK)(id data, NSInteger errCode, NSString *wrongTip);
                                 host:(NSString*)host
                                  url:(NSString*)url
                                param:(id)param
+                               cache:(BOOL)cache
                                  tag:(NSInteger)tag
                                block:(API_BLOCK)block;
 

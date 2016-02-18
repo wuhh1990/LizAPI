@@ -209,8 +209,6 @@
     cache.memoryCache.shouldRemoveAllObjectsOnMemoryWarning = YES;
     cache.memoryCache.shouldRemoveAllObjectsWhenEnteringBackground = YES;
     
-   
-    
     id object = [cache objectForKey:cacheKey];
     
     
@@ -264,7 +262,7 @@
     
     switch (type) {
         case MSHTTPClientRequestTypeGET:{
-            return [manager GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            return [manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                 if ([responseObject isKindOfClass:[NSData class]]) {
                     responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
                 }
@@ -276,7 +274,7 @@
             break;
         }
         case MSHTTPClientRequestTypePOST:{
-            return [manager POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            return [manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                 if ([responseObject isKindOfClass:[NSData class]]) {
                     responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
                 }
@@ -309,6 +307,7 @@
     [uploadTask resume];
     return uploadTask;
 }
+
 + (instancetype)sharedClient{
     static MSHTTPClient *sharedClient = nil;
     static dispatch_once_t onceToken;
@@ -317,7 +316,22 @@
     });
     return sharedClient;
 }
+
 + (instancetype)client{
-    return [MSHTTPClient manager];
+    
+    MSHTTPClient* HTTPClient = [MSHTTPClient manager];
+    HTTPClient.requestSerializer.timeoutInterval = MSHTTPClientTimeoutInterval;  //超时 时间设置
+    
+    return HTTPClient;
 }
+
++ (void)cancelAllRequests {
+    
+    AFHTTPSessionManager* manager = [MSHTTPClient sharedClient];
+    [manager.dataTasks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
+        NSURLSessionDataTask *task = obj;
+        [task cancel];
+    }];
+}
+
 @end

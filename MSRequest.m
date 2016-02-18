@@ -17,6 +17,7 @@
                          host:(NSString*)host
                           url:(NSString*)url
                         param:(id)param
+                        cache:(BOOL)cache
                           tag:(NSInteger)tag
                         block:(API_BLOCK)block
 {
@@ -25,6 +26,7 @@
                          url:url
                        param:param
                       cookie:NO
+                       cache:cache
                          tag:tag
                        block:block];
 }
@@ -33,6 +35,7 @@
                                host:(NSString*)host
                                 url:(NSString*)url
                               param:(id)param
+                              cache:(BOOL)cache
                                 tag:(NSInteger)tag
                               block:(API_BLOCK)block
 {
@@ -41,6 +44,7 @@
                          url:url
                        param:param
                       cookie:YES
+                       cache:cache
                          tag:tag
                        block:block];
 }
@@ -54,6 +58,7 @@
                           host:(NSString*)host
                            url:(NSString*)url
                          param:(id)param
+                         cache:(BOOL)cache
                            tag:(NSInteger)tag
                          block:(API_BLOCK)block
 {
@@ -62,6 +67,7 @@
                           url:url
                         param:param
                        cookie:NO
+                        cache:cache
                           tag:tag
                         block:block];
 }
@@ -70,6 +76,7 @@
                                 host:(NSString*)host
                                  url:(NSString*)url
                                param:(id)param
+                               cache:(BOOL)cache
                                  tag:(NSInteger)tag
                                block:(API_BLOCK)block
 {
@@ -78,6 +85,7 @@
                           url:url
                         param:param
                        cookie:YES
+                        cache:cache
                           tag:tag
                         block:block];
 }
@@ -90,16 +98,20 @@
                           url:(NSString*)url
                         param:(id)param
                        cookie:(BOOL)cookie
+                        cache:(BOOL)cache
                           tag:(NSInteger)tag
                         block:(API_BLOCK)block {
     
     if (!(APP_DELEGATE).isReachable) {
-        [CAQIRequest HUDWithStr:NOT_CONNECT_STR View:vc.view];
-        return nil;
+        //[CAQIRequest HUDWithStr:NET_NOT_CONNECT View:vc.view];
+        //return nil;
+        [vc.view HudShowWithText:NET_NOT_CONNECT];
+        tag = 0;
     }
     
     if (tag>0) {
-        [CAQIRequest showHudInView:vc.view tag:tag];
+        //[CAQIRequest showHudInView:vc.view tag:tag];
+        [vc.view HudShowWithTag:tag];
     }
     
     return [MSHTTPClient GET:url
@@ -107,11 +119,12 @@
                       cookie:cookie
                   parameters:param
                   appendType:@"/"
-                 cachePolicy:MSHTTPClientReloadIgnoringLocalCacheData
+                 cachePolicy:cache?MSHTTPClientReturnCacheDataThenLoad:MSHTTPClientReloadIgnoringLocalCacheData
                      success:^(NSURLSessionDataTask *task, id responseObject){
                          
                          if (tag>0) {
-                             [CAQIRequest hideHudInView:vc.view mtag:tag];
+                             //[CAQIRequest hideHudInView:vc.view mtag:tag];
+                             [vc.view HudHideWithTag:tag];
                          }
                          
                          NSString* errmsg = nil;
@@ -139,8 +152,8 @@
                          }else{
                              code   = APICODE_WRONG;
                              errmsg = [responseObject objectForKey:@"errmsg"];
-                             [CommonMethod MBProgressText:vc.view text:errmsg];
-                             
+                             //[CommonMethod MBProgressText:vc.view text:errmsg];
+                             [vc.view HudShowWithText:errmsg];
                              NSLog(@"URL_MSG:%@  %@",url,errmsg);
                          }
                          
@@ -151,7 +164,8 @@
                      failure:^(NSURLSessionDataTask *task, NSError *error){
                          
                          if (tag>0) {
-                             [CAQIRequest hideHudInView:vc.view mtag:tag];
+                             //[CAQIRequest hideHudInView:vc.view mtag:tag];
+                             [vc.view HudHideWithTag:tag];
                          }
                          
                          if (block) {
@@ -167,16 +181,20 @@
                            url:(NSString*)url
                          param:(id)param
                         cookie:(BOOL)cookie
+                         cache:(BOOL)cache
                            tag:(NSInteger)tag
                          block:(API_BLOCK)block {
     
     if (!(APP_DELEGATE).isReachable) {
-        [CAQIRequest HUDWithStr:NOT_CONNECT_STR View:vc.view];
-        return nil;
+        //[CAQIRequest HUDWithStr:NET_NOT_CONNECT View:vc.view];
+        //return nil;
+        [vc.view HudShowWithText:NET_NOT_CONNECT];
+        tag = 0;
     }
     
     if (tag>0) {
-        [CAQIRequest showHudInView:vc.view tag:tag];
+        //[CAQIRequest showHudInView:vc.view tag:tag];
+        [vc.view HudShowWithTag:tag];
     }
     
     return [MSHTTPClient POST:url
@@ -184,19 +202,20 @@
                        cookie:cookie
                    parameters:param
                    appendType:@"/"
-                  cachePolicy:MSHTTPClientReloadIgnoringLocalCacheData
+                  cachePolicy:cache? MSHTTPClientReturnCacheDataThenLoad:MSHTTPClientReloadIgnoringLocalCacheData
                       success:^(NSURLSessionDataTask *task, id responseObject){
                          
                          if (tag>0) {
-                             [CAQIRequest hideHudInView:vc.view mtag:tag];
+                             //[CAQIRequest hideHudInView:vc.view mtag:tag];
+                             [vc.view HudHideWithTag:tag];
                          }
                          
-                         NSString* errmsg = nil;
                          NSInteger code = APICODE_OTHER;
                          
                          int status = [[responseObject objectForKey:@"errno"] intValue];
                          id data = [responseObject objectForKey:@"data"];
-                         
+                         NSString* errmsg = [responseObject objectForKey:@"errmsg"];
+                          
                          if(status==0){
                              
                              code = APICODE_SUCCESS;
@@ -214,9 +233,9 @@
                          }else if(status == 120101){
                              code = APICODE_WRONG_SPECIAL_BIND;  //绑定时候，出现该错误,说明存在授权缓存.要取消授权.
                          }else{
-                             code   = APICODE_WRONG;
-                             errmsg = [responseObject objectForKey:@"errmsg"];
-                             [CommonMethod MBProgressText:vc.view text:errmsg];
+                             code = APICODE_WRONG;
+                             //[CommonMethod MBProgressText:vc.view text:errmsg];
+                             [vc.view HudShowWithText:errmsg];
                          }
                          
                          if (block) {
@@ -225,7 +244,8 @@
                      }failure:^(NSURLSessionDataTask *task, NSError *error){
                          
                          if (tag>0) {
-                             [CAQIRequest hideHudInView:vc.view mtag:tag];
+                             //[CAQIRequest hideHudInView:vc.view mtag:tag];
+                             [vc.view HudHideWithTag:tag];
                          }
                          
                          if (block) {

@@ -10,7 +10,8 @@
 #import "YYCache.h"
 #import "NSJSONSerialization+LYJSON.h"
 
-static NSString * const MSHTTPClientURLString    = @"https://api.app.net/";
+#define MSHTTPClientTimeoutInterval  15
+
 static NSString * const MSHTTPClientRequestCache = @"MSHTTPClientRequestCache";
 
 
@@ -20,6 +21,8 @@ typedef NS_ENUM(NSUInteger, MSHTTPClientRequestCachePolicy){
     MSHTTPClientReturnCacheDataElseLoad,      ///< 有缓存就用缓存，没有缓存就重新请求(用于数据不变时)
     MSHTTPClientReturnCacheDataDontLoad,      ///< 有缓存就用缓存，没有缓存就不发请求，当做请求出错处理（用于离线模式）
 };
+
+
 
 typedef NS_ENUM(NSUInteger, MSHTTPClientRequestType) {
     MSHTTPClientRequestTypeGET = 0,
@@ -31,6 +34,7 @@ typedef NS_ENUM(NSUInteger, MSHTTPClientRequestType) {
 
 + (instancetype)sharedClient;
 
++ (void)cancelAllRequests;
 
 /// 默认 MSHTTPClientReturnCacheDataThenLoad 的缓存方式
 + (NSURLSessionDataTask *)GET:(NSString *)URLString

@@ -215,18 +215,19 @@
                             cachePolicy:(MSHTTPClientRequestCachePolicy)cachePolicy
                                 success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                                 failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+   
+    URLString = URLString.length?URLString:@"";
     NSString *cacheKey = URLString;
     if (parameters) {
         if (![NSJSONSerialization isValidJSONObject:parameters]) return nil;//参数不是json类型
         NSData *data = [NSJSONSerialization dataWithJSONObject:parameters options:NSJSONWritingPrettyPrinted error:nil];
         NSString *paramStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        cacheKey = [URLString stringByAppendingString:paramStr];
+        cacheKey = [cacheKey stringByAppendingString:paramStr];
     }
     
     YYCache *cache = [[YYCache alloc] initWithName:MSHTTPClientRequestCache];
     cache.memoryCache.shouldRemoveAllObjectsOnMemoryWarning = YES;
     cache.memoryCache.shouldRemoveAllObjectsWhenEnteringBackground = YES;
-    
     id object = [cache objectForKey:cacheKey];
     
     switch (cachePolicy) {
@@ -238,6 +239,7 @@
         }
         case MSHTTPClientReloadIgnoringLocalCacheData: {//忽略本地缓存直接请求
             //不做处理，直接请求
+            cache = nil;//数据不进行缓存
             break;
         }
         case MSHTTPClientReturnCacheDataElseLoad: {//有缓存就返回缓存，没有就请求
@@ -288,7 +290,7 @@
     
     switch (type) {
         case MSHTTPClientRequestTypeGET:{
-            return [manager GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            return [manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                 if ([responseObject isKindOfClass:[NSData class]]) {
                     responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
                 }
@@ -300,7 +302,7 @@
             break;
         }
         case MSHTTPClientRequestTypePOST:{
-            return [manager POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            return [manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                 if ([responseObject isKindOfClass:[NSData class]]) {
                     responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
                 }

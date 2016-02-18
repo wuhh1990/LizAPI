@@ -21,6 +21,7 @@
                      host:USER_HOST_URL
                       url:API_User_QuickLogin
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -34,6 +35,7 @@
                            host:USER_HOST_URL
                             url:ZP_MY_Get_Info
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -48,6 +50,7 @@
                      host:USER_HOST_URL
                       url:ZP_Openuser_Bine
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -61,6 +64,7 @@
                            host:ZP_HOST_URL
                             url:ZP_GeTuiPush_Add
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -75,6 +79,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_ListCost
                     param:param
+                    cache:NO
                       tag:10001
                     block:block];
 }
@@ -89,6 +94,7 @@
                            host:HOST_URL_JIFU
                             url:@"/api/skin/newestmoisture"
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -103,6 +109,7 @@
                            host:HOST_URL_FIT
                             url:f_userlist_url
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -118,6 +125,7 @@
                            host:HOST_URL_FIT
                             url:f_deleteuser_url
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -132,6 +140,7 @@
                      host:USER_HOST_URL
                       url:API_User_GetCode
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -145,6 +154,7 @@
                      host:USER_HOST_URL
                       url:API_User_Bind
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -158,6 +168,7 @@
                       host:USER_HOST_URL
                        url:ZP_User_Register
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -171,6 +182,7 @@
                      host:USER_HOST_URL
                       url:API_User_BindNewRegister
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -184,6 +196,7 @@
                       host:USER_HOST_URL
                        url:ZP_USER_LOGIN
                      param:param
+                     cache:NO
                        tag:10002
                      block:block];
 }
@@ -198,6 +211,7 @@
                      host:USER_HOST_URL
                       url:MS_My_Updatepassword
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -212,6 +226,7 @@
                            host:HOST_URL_JIFU
                             url:@"/api/skin/zpshow/v/2/"
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -225,6 +240,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_Open
                     param:param
+                    cache:NO
                       tag:10003
                     block:block];
 }
@@ -238,6 +254,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_Delete
                     param:param
+                    cache:NO
                       tag:10004
                     block:block];
 }
@@ -251,6 +268,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_UseUp
                     param:param
+                    cache:NO
                       tag:10005
                     block:block];
 }
@@ -264,6 +282,7 @@
                       host:ZP_HOST_URL
                        url:API_ZP_Edit
                      param:param
+                     cache:NO
                        tag:10006
                      block:block];
 }
@@ -277,6 +296,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_Label
                     param:param
+                    cache:YES
                       tag:10007
                     block:block];
 }
@@ -291,6 +311,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_Grade
                     param:param
+                    cache:NO
                       tag:10008
                     block:block];
 }
@@ -304,6 +325,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_GradeList
                     param:param
+                    cache:NO
                       tag:10009
                     block:block];
 }
@@ -320,6 +342,7 @@
                             host:HOST_URL_JIFU
                              url:KPBA_SKIN_ADD
                            param:param
+                           cache:NO
                              tag:10010
                            block:block];
 }
@@ -335,6 +358,7 @@
                            host:HOST_URL_JIFU
                             url:@"/api/skin/singlezp/v/2/"
                           param:param
+                          cache:NO
                             tag:10011
                           block:block];
 }
@@ -351,6 +375,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_GradeList_Productid
                     param:param
+                    cache:NO
                       tag:10012
                     block:block];
 }
@@ -364,6 +389,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_List
                     param:param
+                    cache:NO
                       tag:10013
                     block:block];
     
@@ -379,6 +405,7 @@
                            host:HOST_URL_JIFU
                             url:KMS_SKIN_TRENDANALYSE
                           param:param
+                          cache:NO
                             tag:10014
                           block:block];
 }
@@ -394,6 +421,7 @@
                            host:HOST_URL_JIFU
                             url:KPBA_SKIN_TAGLIST_V2
                           param:param
+                          cache:YES
                             tag:10015
                           block:block];
 }
@@ -407,6 +435,7 @@
                            host:MUSHU_HOST_URL
                             url:KMS_SKIN_RELATE_MODULE
                           param:param
+                          cache:NO
                             tag:10016
                           block:block];
 }
@@ -420,6 +449,7 @@
                            host:HOST_URL_JIFU
                             url:API_OTA_Update
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -434,6 +464,7 @@
                            host:HOST_URL_JIFU
                             url:KMS_SKINII_FIRSTPAGE
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -447,6 +478,7 @@
                      host:HOST_URL_JIFU
                       url:@"/api/cosmeticmanage/commendproduct/"
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -462,6 +494,7 @@
                       host:HOST_URL_JIFU
                        url:KMS_SKIN_ANALYSE
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -478,6 +511,7 @@
                            host:HOST_URL_JIFU
                             url:KMS_SKIN_TAGLIST2
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -496,6 +530,7 @@
                            host:HOST_URL_JIFU
                             url:API_SKIN_UV_TIPS
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -509,6 +544,7 @@
                            host:HOST_URL_JIFU
                             url:API_SKIN_SUNSHINE_TIPS
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -525,6 +561,7 @@
                      host:USER_HOST_URL
                       url:ZP_Openuser_Bindverifycode
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -537,6 +574,7 @@
                             host:USER_HOST_URL
                              url:ZP_Openuser_Bindverifyverifycode
                            param:param
+                           cache:NO
                              tag:HTagNone
                            block:block];
 }
@@ -551,6 +589,7 @@
                       host:USER_HOST_URL
                        url:ZP_User_Findpasswordsendcode
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -563,6 +602,7 @@
                       host:USER_HOST_URL
                        url:ZP_User_Findpasswordverifycode
                      param:param
+                     cache:NO
                        tag:1
                      block:block];
 }
@@ -575,6 +615,7 @@
                       host:USER_HOST_URL
                        url:ZP_User_Findpasswordmodifypassword
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -588,6 +629,7 @@
                            host:ZP_HOST_URL
                             url:API_ZP_MAIN_ZPCOUNT
                           param:param
+                          cache:YES
                             tag:HTagNone
                           block:block];
 }
@@ -602,6 +644,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_MAIN_HOT_EFFECTS
                     param:param
+                    cache:YES
                       tag:HTagNone
                     block:block];
 }
@@ -616,6 +659,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_MAIN_HOT_PRODUCTS
                     param:param
+                    cache:YES
                       tag:HTagNone
                     block:block];
 }
@@ -631,6 +675,7 @@
                             host:ZP_HOST_URL
                              url:@"/api/cosmeticnew/addauditphoto/"
                            param:param
+                           cache:NO
                              tag:HTagNone
                            block:block];
 }
@@ -649,6 +694,7 @@
                            host:HOST_URL_FIT
                             url:f_recordlist_url
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -662,6 +708,7 @@
                       host:HOST_URL_FIT
                        url:f_analyzerecord_url
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -680,7 +727,8 @@
                            host:HOST_URL_JIFU
                             url:KMS_SKIN_FIRSTPAGE
                           param:param
-                            tag:HTagNone
+                          cache:NO
+                            tag:HTagNormal+10001
                           block:block];
 }
 
@@ -700,6 +748,7 @@
                            host:HOST_URL_FIT
                             url:f_mytarget_url
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -716,6 +765,7 @@
                       host:HOST_URL_FIT
                        url:f_adduser_url
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -729,6 +779,7 @@
                       host:HOST_URL_FIT
                        url:f_updateuser_url
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -742,6 +793,7 @@
                       host:HOST_URL_FIT
                        url:f_addrecode_url
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -754,6 +806,7 @@
                            host:HOST_URL_FIT
                             url:f_isactive_url
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -766,6 +819,7 @@
                            host:HOST_URL_FIT
                             url:f_user_info_url
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -781,6 +835,7 @@
                            host:HOST_URL_JIFU
                             url:@"/api/skin/analysedaily/"
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -795,6 +850,7 @@
                            host:HOST_URL_JIFU
                             url:KPBA_SKIN_DAILY
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -810,6 +866,7 @@
                      host:MUSHU_HOST_URL
                       url:KMS_SKIN_FAQ_CONTENT
                     param:param
+                    cache:NO
                       tag:10017
                     block:block];
 }
@@ -829,6 +886,7 @@
                       host:HOST_URL_FIT
                        url:f_add_target_url
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -842,6 +900,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_BARCODE_REQUEST
                     param:param
+                    cache:YES
                       tag:HTagNone
                     block:block];
 }
@@ -855,6 +914,7 @@
                            host:ZP_HOST_URL
                             url:API_ZP_GET_PRODUCTS_BYBAND
                           param:param
+                          cache:YES
                             tag:10018
                           block:block];
 }
@@ -867,6 +927,7 @@
                       host:ZP_HOST_URL
                        url:API_ZP_AddCosmetic
                      param:param
+                     cache:NO
                        tag:10019
                      block:block];
 }
@@ -881,6 +942,7 @@
                       host:ZP_HOST_URL
                        url:API_ZP_BAIKE_DETAIL
                      param:param
+                     cache:YES
                        tag:10020
                      block:block];
 }
@@ -894,6 +956,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_Baike_Label
                     param:param
+                    cache:YES
                       tag:10021
                     block:block];
 }
@@ -912,6 +975,7 @@
                            host:ZP_HOST_URL
                             url:ZP_My_Billstat
                           param:param
+                          cache:NO
                             tag:10022
                           block:block];
 }
@@ -926,6 +990,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_BAIKE_INGREDIENT_DETAIL
                     param:param
+                    cache:YES
                       tag:10023
                     block:block];
 }
@@ -939,6 +1004,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_BAIKE_INGREDIENT_LIST
                     param:param
+                    cache:YES
                       tag:10024
                     block:block];
 }
@@ -957,6 +1023,7 @@
                       host:USER_HOST_URL
                        url:ZP_User_Findregistercode
                      param:param
+                     cache:NO
                        tag:10025
                      block:block];
 }
@@ -970,6 +1037,7 @@
                       host:USER_HOST_URL
                        url:ZP_User_Registerverifycode
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -985,6 +1053,7 @@
                       host:MUSHU_HOST_URL
                        url:ZP_advice_url
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -1000,6 +1069,7 @@
                       host:MUSHU_HOST_URL
                        url:ZP_CHECK_VERSION_URL
                      param:param
+                     cache:NO
                        tag:HTagNone
                      block:block];
 }
@@ -1016,6 +1086,7 @@
                      host:USER_HOST_URL
                       url:API_User_BindInfo
                     param:param
+                    cache:NO
                       tag:10026
                     block:block];
 }
@@ -1028,6 +1099,7 @@
                             host:USER_HOST_URL
                              url:API_User_Unbind
                            param:param
+                           cache:NO
                              tag:10027
                            block:block];
 }
@@ -1041,6 +1113,7 @@
                             host:USER_HOST_URL
                              url:ZP_My_Updateinfo
                            param:param
+                           cache:NO
                              tag:10028
                            block:block];
 }
@@ -1063,6 +1136,7 @@
                            host:ZP_HOST_URL
                             url:API_HOME_SKINTYPE
                           param:param
+                          cache:NO
                             tag:10029
                           block:block];
 }
@@ -1077,6 +1151,7 @@
                            host:ZP_HOST_URL
                             url:@"/api/cosmeticmanage/expireproduct/"
                           param:param
+                          cache:NO
                             tag:HTagNone
                           block:block];
 }
@@ -1091,6 +1166,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_Rank
                     param:param
+                    cache:NO
                       tag:10030
                     block:block];
 }
@@ -1104,6 +1180,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_MyRank
                     param:param
+                    cache:NO
                       tag:10031
                     block:block];
 }
@@ -1117,6 +1194,7 @@
                      host:MUSHU_HOST_URL
                       url:@"/api/astro/todayinfo/"
                     param:param
+                    cache:NO
                       tag:10032
                     block:block];
 }
@@ -1135,6 +1213,7 @@
                      host:HOST_URL_JIFU
                       url:API_SKIN_BODYFEEL_TEMP_TIPS
                     param:param
+                    cache:NO
                       tag:10033
                     block:block];
 }
@@ -1150,6 +1229,7 @@
                      host:HOST_URL_JIFU
                       url:@"/api/share/add/"
                     param:param
+                    cache:NO
                       tag:10034
                     block:block];
 }
@@ -1165,6 +1245,7 @@
                      host:ZP_HOST_URL
                       url:API_ZP_SEARCH_KEYWORD
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -1180,6 +1261,7 @@
                      host:ZP_HOST_URL
                       url:API_SKIN_QUESTION_DEFAULT_SKINTYPES
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -1193,6 +1275,7 @@
                      host:ZP_HOST_URL
                       url:API_SKIN_QUESTION_DEFAULT_SKINTYPES_SAVE
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -1208,6 +1291,7 @@
                      host:ZP_HOST_URL
                       url:API_SKIN_QUESTION_SINGLE_RESULT
                     param:param
+                    cache:NO
                       tag:HTagNone
                     block:block];
 }
@@ -1223,6 +1307,7 @@
                      host:ZP_HOST_URL
                       url:API_SKIN_QUESTION_COMPLEX_RESULT
                     param:param
+                    cache:YES
                       tag:HTagNone
                     block:block];
 }
